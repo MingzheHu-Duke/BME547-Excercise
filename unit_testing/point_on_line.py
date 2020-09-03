@@ -16,3 +16,18 @@ def user_input():
 	print("We will give you the y value of it on the line created by first two point:")
 	x_value = float(input())
 	return point_1, point_2, x_value
+
+def cal_slope(point_1, point_2):
+	slope = (point_2[1] - point_1[1])/(point_2[0] - point_1[0])
+	print("The line formed is : \n y = {}x + {}".format(slope, point_1[1]-slope*point_1[0]))
+	return slope
+	
+def cal_y(point_1, point_2, x_value):
+	slope = cal_slope(point_1, point_2)
+	y = slope*x_value + point_1[1]-slope*point_1[0]
+	return y
+	
+if __name__ == "__main__":
+	point_1, point_2, x_value = user_input()
+	y = cal_y(point_1, point_2, x_value)
+	print("The corresponding y value on the line is {}".format(y))
